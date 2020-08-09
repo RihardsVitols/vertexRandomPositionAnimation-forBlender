@@ -8,10 +8,12 @@ import random
 # variables
 frameNum = 1          # starts animation from
 keyFrameRate = 25     # keyframe every n frame
-animLenght = 12       # how many key-frames will be set
+animLenght = 2      # how many key-frames will be set
 
-partOfVertex = 45     # this is in %, should be between 1 - 100, what part of vertex will be used at once between key frames
-movingDistance = 500  # distance that will be used float numbers to move vertex
+partOfVertex = 65    # this is in %, should be between 1 - 100, what part of vertex will be used at once between key frames
+movingDistanceX = 300  # distance that will be used float numbers to move vertex X axs
+movingDistanceY = 300  # distance that will be used float numbers to move vertex X axs
+movingDistanceZ = 900  # distance that will be used float numbers to move vertex X axs
 forDecVal = 100       # to create decimal number for new vertex coordinates
 
 bpy.ops.object.mode_set(mode='OBJECT')
@@ -44,9 +46,9 @@ for x in range(animLenght):
         vertNr = random.randrange(vertexCount)  # selects random vertex
 
         # figure out what distance vertex will travel
-        xVertDist = random.randrange(-movingDistance, movingDistance) / forDecVal  # selects random coordinates for x
-        yVertDist = random.randrange(-movingDistance, movingDistance) / forDecVal  # selects random coordinates for y
-        zVertDist = random.randrange(-movingDistance, movingDistance) / forDecVal  # selects random coordinates for z
+        xVertDist = random.randrange(-movingDistanceX, movingDistanceX) / forDecVal  # selects random coordinates for x
+        yVertDist = random.randrange(-movingDistanceY, movingDistanceY) / forDecVal  # selects random coordinates for y
+        zVertDist = random.randrange(-movingDistanceZ, movingDistanceZ) / forDecVal  # selects random coordinates for z
 
         # set the new vertex values
         selVertex = obj.data.vertices[vertNr]  # random vertex selected
